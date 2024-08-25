@@ -8,6 +8,10 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('Bienvenue sur l\'API Stripe');
+});
+
 app.post('/create-payment-intent', async (req, res) => {
     try {
         const { amount, currency } = req.body;
